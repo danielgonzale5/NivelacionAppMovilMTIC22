@@ -42,8 +42,8 @@ class AuthenticationController extends GetxController {
     }
   }
 
-  String userEmail() {
-    String email = FirebaseAuth.instance.currentUser!.email ?? "a@a.com";
+  String? userEmail() {
+    String? email = FirebaseAuth.instance.currentUser!.email;
     return email;
   }
 

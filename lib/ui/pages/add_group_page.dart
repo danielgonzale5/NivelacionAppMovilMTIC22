@@ -1,10 +1,12 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
 import 'package:misiontic_team_management/domain/controller/firestore_controller.dart';
 
 class AddGroupPage extends StatefulWidget {
-  const AddGroupPage({Key? key}) : super(key: key);
+  const AddGroupPage(BuildContext context, {Key? key}) : super(key: key);
 
   @override
   _AddGroupPageState createState() => _AddGroupPageState();
@@ -16,6 +18,8 @@ class _AddGroupPageState extends State<AddGroupPage> {
   final _groupIdController = TextEditingController();
   final _student1Controller = TextEditingController();
   final _student2Controller = TextEditingController();
+
+  get groupId => null;
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +85,12 @@ class _AddGroupPageState extends State<AddGroupPage> {
                         form!.save();
                         if (form.validate()) {
                           // TODO
+
+                          firebaseController.addGroup(
+                              _groupIdController.text,
+                              _student1Controller.text,
+                              _student2Controller.text);
+
                           logInfo(
                               'Aquí llamar al método addGroup del firebaseController');
                           Get.back();

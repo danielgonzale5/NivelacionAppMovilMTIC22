@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
 import 'package:misiontic_team_management/domain/controller/authentication_controller.dart';
+import 'package:misiontic_team_management/ui/pages/content_page.dart';
 import 'firebase_signup.dart';
 
 class FirebaseLogIn extends StatefulWidget {
@@ -18,7 +19,7 @@ class _FirebaseLogInState extends State<FirebaseLogIn> {
   _login(theEmail, thePassword) async {
     print('_login $theEmail $thePassword');
     try {
-      // TODO
+      await authenticationController.login(theEmail, thePassword);
       logInfo(
           'Aquí llamar al método login del authenticationController con await');
     } catch (err) {
@@ -94,6 +95,7 @@ class _FirebaseLogInState extends State<FirebaseLogIn> {
                   if (_formKey.currentState!.validate()) {
                     await _login(controllerEmail.text, controllerPassword.text);
                   }
+                  // Get.to(ContentPage());
                 },
                 child: const Text("Submit"),
               ),
@@ -101,7 +103,8 @@ class _FirebaseLogInState extends State<FirebaseLogIn> {
           ),
           TextButton(
               onPressed: () {
-                // TODO
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => FirebaseSignUp()));
                 logInfo('Aquí navegar a  FirebaseSignUp');
               },
               child: const Text("Create account"))

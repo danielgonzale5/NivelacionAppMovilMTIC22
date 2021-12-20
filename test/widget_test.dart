@@ -69,6 +69,6 @@ void main() {
 
     await tester.pumpAndSettle();
 
-    expect(groupCard, findsWidgets);
+    expect(groupCard, findsNothing);
   });
 }

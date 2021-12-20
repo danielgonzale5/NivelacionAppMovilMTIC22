@@ -64,7 +64,7 @@ class FirestoreController extends GetxController {
     return list;
   }
 
-  addGoup(groupId, student1, student2) {
+  addGroup(groupId, student1, student2) {
     groupCollectionReference
         .add({
           'groupId': groupId,

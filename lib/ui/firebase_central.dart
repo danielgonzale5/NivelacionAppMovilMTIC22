@@ -5,6 +5,8 @@ import 'pages/authentication/firebase_login.dart';
 import 'pages/content_page.dart';
 
 class FirebaseCentral extends StatelessWidget {
+  const FirebaseCentral({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(

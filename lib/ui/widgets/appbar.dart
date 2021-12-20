@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:misiontic_team_management/domain/controller/theme_controller.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class CustomAppBar extends AppBar {
+
   final Widget tile;
   final BuildContext context;
   final ThemeController controller;

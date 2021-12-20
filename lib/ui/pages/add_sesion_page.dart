@@ -85,6 +85,8 @@ class _AddSesionPageState extends State<AddSesionPage> {
               key: const ValueKey("actionSesion"),
               onPressed: () {
                 // TODO
+                firebaseController.addSesion(
+                    _selectedGroupId, student1, student2);
                 logInfo(
                     'Aquí llamar al método addSesion del firebaseController');
                 Get.back();

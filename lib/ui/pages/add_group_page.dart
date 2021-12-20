@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
@@ -82,6 +84,7 @@ class _AddGroupPageState extends State<AddGroupPage> {
                         final form = _formKey.currentState;
                         form!.save();
                         if (form.validate()) {
+                          // TODO
 
                           firebaseController.addGroup(
                               _groupIdController.text,

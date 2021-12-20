@@ -1,29 +1,22 @@
-Proyecto Nivelaci贸n MisionTic 
+Proyecto Nivelaci髇 MisionTic 
 
-Usar el template para crear un repositorio propio, completar el proyecto y verificar que las pruebas de widget e integraci贸n funcione
+Usar el template para crear un repositorio propio, completar el proyecto y verificar que las pruebas de widget e integraci髇 funcione
 
 Para la prueba de integraci贸n se asume que hay un usuario creado a@a.com con clave 123456
 
-Recordar que la prueba de integraci贸n se corre con:   
-
-flutter drive --driver test_driver/integration_test.dart --target integration_test/app_test.dart
-
-Este proyecto trabaja las funcionalidades de Firestore y autenticaci贸n de Firebase, hay que agregar el google-services.json y habilitar esos servicios en el firebase console. Ver: https://drive.google.com/file/d/1qPSQkVIiUy6Iv9OfwAC_dTRLvEDPz4pp/view?usp=sharing   
-
-Pista: Revisar los comentarios TODO   
-
-
-<img src="firebase.gif" width="300" />
+_______________________________________________________________________________________________
 
 Proyecto Nivelacion Administracion de Grupos
 
-Repositorio:
-https://github.com/ediazmina/nivelacionciclo4b
+Estudiante: Daniel Andr閟 Gonz醠ez Vargas
 
-Video Pruebas Widget e Integraci髇:
-https://drive.google.com/file/d/17ONiPoEvngbcUR3uNlnqoGXL3K1D5-YA/view?usp=sharing
+Pruebas Widget e Integraci髇 (Video):
+https://drive.google.com/file/d/1T1hNOEc1BJ58N7zZXLyXD0YwVDZDqpKA/view?usp=sharing
 
-Video Demo:
-https://drive.google.com/file/d/1A3GQSZTi5gjeINuNGM-gF5O7oT0J5Qt4/view?usp=sharing
+Demo App (Video):
+Los errores que se muestran en el v韉eo anterior no permitieron mostrar el video de la app funcional, sin embargo, se realizaron todos los ajustes en el c骴igo necesarios para que funcionara correctamente, incluyendo el uso de firebase como se muestra en el v韉eo anterior.
 
-Esteban Andres Diaz Mina
+Github (Repositorio):
+https://github.com/danielgonzale5/NivelacionAppMovilMTIC22
+
+

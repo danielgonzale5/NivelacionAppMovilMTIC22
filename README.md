@@ -1,22 +1,53 @@
-Proyecto Nivelaci�n MisionTic 
+# MisionTIC Team Management
 
-Usar el template para crear un repositorio propio, completar el proyecto y verificar que las pruebas de widget e integraci�n funcione
+Flutter app to organise students into pairs and track attendance at their work sessions. Users sign in, create groups of two students, and log each session with which student attended. Data syncs in real time through Firebase.
 
-Para la prueba de integración se asume que hay un usuario creado a@a.com con clave 123456
+Built for the leveling stage of MisionTIC 2022 (Colombia's national software training program), December 2021. The course provided a starter template; the assignment was to complete the app and make its widget and integration tests pass.
 
-_______________________________________________________________________________________________
+## Features
 
-Proyecto Nivelacion Administracion de Grupos
+- **Authentication:** email and password sign-up and login with Firebase Authentication.
+- **Groups:** create a group with an ID and two students, stored in Cloud Firestore.
+- **Sessions:** log a session for a group with the date and each student's attendance.
+- **Live lists:** groups and sessions update in real time from Firestore streams.
+- **Light and dark theme:** toggled in the app and remembered with `shared_preferences`.
 
-Estudiante: Daniel Andr�s Gonz�lez Vargas
+## Architecture
 
-Pruebas Widget e Integraci�n (Video):
-https://drive.google.com/file/d/1T1hNOEc1BJ58N7zZXLyXD0YwVDZDqpKA/view?usp=sharing
+```
+lib/
+├── data/
+│   ├── model/            Group, Sesion (Firestore document mapping)
+│   └── repositories/     local preferences
+├── domain/
+│   └── controller/       GetX controllers: authentication, Firestore, theme
+└── ui/
+    ├── pages/            login, sign-up, content, add group, add session
+    ├── widgets/          app bar, group and session tiles
+    └── theme/
+```
 
-Demo App (Video):
-Los errores que se muestran en el v�deo anterior no permitieron mostrar el video de la app funcional, sin embargo, se realizaron todos los ajustes en el c�digo necesarios para que funcionara correctamente, incluyendo el uso de firebase como se muestra en el v�deo anterior.
+State management and dependency injection use [GetX](https://pub.dev/packages/get): controllers are registered once and retrieved with `Get.find()` from the pages.
 
-Github (Repositorio):
-https://github.com/danielgonzale5/NivelacionAppMovilMTIC22
+## Tests
 
+- **Widget test** (`test/widget_test.dart`): opens the groups screen with a mocked Firestore controller, fills in the add-group form and checks the new group card appears.
+- **Integration tests** (`integration_test/app_test.dart`): end to end on a device or emulator, logging in, creating a group, and creating a group plus a session. They expect a Firebase user `a@a.com` with password `123456`.
 
+## Running it
+
+Requirements: Flutter 2.8 (Dart 2.12 to 2.x) and your own Firebase project with Authentication (email/password) and Cloud Firestore enabled. The Firebase configuration files are not included in this repository.
+
+```bash
+flutter pub get
+flutterfire configure        # or add google-services.json / GoogleService-Info.plist by hand
+flutter run
+flutter test                 # widget test
+flutter test integration_test/app_test.dart   # needs a device and the test user
+```
+
+## Relevant areas
+
+- Mobile development with Flutter and Dart, using GetX for state management.
+- Firebase Authentication and Cloud Firestore with real-time streams.
+- Automated testing: widget and end-to-end integration tests.
